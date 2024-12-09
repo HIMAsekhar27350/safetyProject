@@ -15,10 +15,10 @@ public class searchProduct {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.get("https://www.safeway.com/");
-        Thread.sleep(3000);
         driver.manage().window().maximize();
-        //driver.findElement(By.xpath("(//*[starts-with(@d,'M13')])[8]")).click();
-        //driver.findElement(By.xpath("//button[@aria-label='Close']")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("(//*[starts-with(@d,'M13')])[8]")).click();
+        driver.findElement(By.xpath("(//*[starts-with(@class,'one')])[2]")).click();
     }
 
     @When("navigate to search bar")
@@ -29,7 +29,7 @@ public class searchProduct {
     @Then("Enter the product name and click on the enter button")
     public void enter_the_product_name_and_click_on_the_enter_button() throws InterruptedException {
         driver.findElement(By.xpath("//input[@id='skip-main-content']")).sendKeys("chocolate chips", Keys.ENTER);
-        Thread.sleep(3000);
+        Thread.sleep(5000);
     }
 
     @Then("close the browser")
